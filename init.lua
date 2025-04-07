@@ -32,6 +32,16 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
+-- Yank highlighting
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+
 vim.schedule(function()
   require "mappings"
 end)
+
+
