@@ -27,7 +27,7 @@ o.termguicolors = true
 
 
 -- min distance from edge lines
-o.scrolloff = 6
+o.scrolloff = 5
 
 -- not sure if this is good to have
 -- after this much idle time, file is written to swap

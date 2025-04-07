@@ -21,6 +21,7 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 -- search terms stay in the middle
+-- NOTE: So far not a fan
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
@@ -29,7 +30,7 @@ map("x", "<leader>p", [["_dP]], { desc = "Paste and keep yank" })
 
 map({"n", "v"}, "<leader>d", "\"_d", { desc = "Delete into void"} )
 
--- next greatest remap ever : asbjornHaland
+-- next greatest remap ever (yank into system clipboard)
 map({"n", "v"}, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 map("n", "<leader>Y", [["+Y]], { desc = "Yank to system clipboard" })
 
@@ -37,5 +38,11 @@ map("n", "<leader>Y", [["+Y]], { desc = "Yank to system clipboard" })
 map("n", "Q", "<nop>")
 
 
+-- Replace word under cursor
 map("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor"} )
+
+
+-- Move up and down between visual lines instead of logical ones.
+map("n", "j", "gj")
+map("n", "k", "gk")
 
