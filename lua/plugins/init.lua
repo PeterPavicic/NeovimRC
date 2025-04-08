@@ -99,6 +99,17 @@ return {
         end
     },
 
+    -- Autoindents blank lines and colours indentations
+    {
+        -- TODO: Rice this
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+        event = "BufReadPost"
+    },
+
     -- {
     --     "Vigemus/iron.nvim",
     --     config = function()
