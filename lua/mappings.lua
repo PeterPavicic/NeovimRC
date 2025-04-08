@@ -17,10 +17,11 @@ map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move block down 1 line"})
 map("n", "J", "mzJ`z") -- J does not move cursor
 
 -- Center when moving up, down half screen
+-- NOTE: So far not a fan
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
--- search terms stay in the middle
+-- Center when searching
 -- NOTE: So far not a fan
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")

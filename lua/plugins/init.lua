@@ -24,28 +24,89 @@ return {
     },
 
     {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
+        "ray-x/lsp_signature.nvim",
+        -- TODO: Rewrite this to using 'opts' for practice 
+        event = "LspAttach",
+        opts = require "configs.lsp_signature"
+    },
+
         config = function()
-            require "configs.nvim-treesitter"
+            require("configs.lsp_signature")
+            -- require("lsp_signature").on_attach({
+            --     bind = true,          -- necessary to activate the plugin
+            --     handler_opts = {
+            --         border = "rounded"  -- optional, adds a nice border to the popup
+            --     },
+            --     -- You can adjust other options as needed.
+            --     --
+            -- })
+        end,
+    },
+
+
+    {
+        "ya2s/nvim-cursorline",
+        lazy = false,
+        config = function()
+            require "configs.cursorline"
+
+            -- require('nvim-cursorline').setup {
+            --     cursorline = {
+            --         enable = true,
+            --         timeout = 1000,
+            --         number = false,
+            --     },
+            --     cursorword = {
+            --         enable = true,
+            --         min_length = 3,
+            --         hl = { underline = true },
+            --     }
+            -- }
         end
     },
 
     {
-        "ray-x/lsp_signature.nvim",
-        -- TODO: Rewrite this to using 'opts' for practice 
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
         config = function()
-            require("configs.lsp_signature")
-        end,
+            require("configs.nvim-treesitter")
+
+            -- require('nvim-treesitter.configs').setup({
+            --     ensure_installed = {
+            --         "lua",
+            --         "python",
+            --         "javascript",
+            --         "typescript",
+            --         "html",
+            --         "css",
+            --         "json",
+            --         "markdown",
+            --         "r"
+            --     },
+            --     highlight = {
+            --         enable = true,
+            --         additional_vim_regex_highlighting = false,
+            --     },
+            --     incremental_selection = {
+            --         enable = true,
+            --         keymaps = {
+            --             init_selection = "<c-space>",
+            --             node_incremental = "<c-space>",
+            --             scope_incremental = "<c-s>",
+            --             node_decremental = "<M-space>",
+            --         },
+            --     },
+            --     indent = { enable = true },
+            -- })
+        end
     },
 
-
-    {
-        "Vigemus/iron.nvim",
-        config = function()
-            require("configs.iron")
-        end,
-    },
+    -- {
+    --     "Vigemus/iron.nvim",
+    --     config = function()
+    --         require("configs.iron")
+    --     end,
+    -- },
 
     -- NOTE: Potential plugins 
     -- Linter
@@ -57,6 +118,7 @@ return {
         -- https://github.com/ThePrimeagen/harpoon
     -- Undotree:
         -- https://github.com/mbbill/undotree
+    -- All the R stuff
 
 
 }

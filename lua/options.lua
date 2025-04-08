@@ -3,7 +3,7 @@ require "nvchad.options"
 local o = vim.o
 
 -- Enable cursorline
-o.cursorlineopt ='both'
+o.cursorlineopt = 'both'
 
 -- set clipboard to system clipboard
 o.clipboard = "unnamedplus"
