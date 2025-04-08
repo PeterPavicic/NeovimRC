@@ -51,5 +51,4 @@ map("n", "k", "gk")
 -- Format json files
 
 -- WARNING: Requires jq installation
-map("n", "<leader>jq", ":!%jq")-- TODO: Fix this so it only works if current file is json file
-
+map("n", "<leader>jq", "<CMD>%!jq<CR>")-- TODO: Fix this so it only works if current file is json file
