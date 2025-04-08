@@ -28,19 +28,17 @@ return {
         -- TODO: Rewrite this to using 'opts' for practice 
         event = "LspAttach",
         opts = require "configs.lsp_signature"
-    },
-
-        config = function()
-            require("configs.lsp_signature")
-            -- require("lsp_signature").on_attach({
-            --     bind = true,          -- necessary to activate the plugin
-            --     handler_opts = {
-            --         border = "rounded"  -- optional, adds a nice border to the popup
-            --     },
-            --     -- You can adjust other options as needed.
-            --     --
-            -- })
-        end,
+        -- config = function()
+        --     require("configs.lsp_signature")
+        --     -- require("lsp_signature").on_attach({
+        --     --     bind = true,          -- necessary to activate the plugin
+        --     --     handler_opts = {
+        --     --         border = "rounded"  -- optional, adds a nice border to the popup
+        --     --     },
+        --     --     -- You can adjust other options as needed.
+        --     --     --
+        --     -- })
+        -- end,
     },
 
 
