@@ -52,3 +52,6 @@ map("n", "k", "gk")
 
 -- WARNING: Requires jq installation
 map("n", "<leader>jq", "<CMD>%!jq<CR>")-- TODO: Fix this so it only works if current file is json file
+
+
+map("n", "<leader>tp", "<cmd>TSPlaygroundToggle<cr>", { desc = "Toggle Treesitter Playground" })

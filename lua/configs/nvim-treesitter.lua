@@ -1,14 +1,15 @@
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
-        "lua",
-        "python",
-        "javascript",
-        "typescript",
-        "html",
         "css",
+        "graphql",
+        "html",
+        "javascript",
         "json",
+        "lua",
         "markdown",
-        "r"
+        "python",
+        "r",
+        "typescript",
     },
     highlight = {
         enable = true,
