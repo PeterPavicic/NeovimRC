@@ -99,34 +99,6 @@ return {
         end
     },
 
-
-    {
-        "nvim-treesitter/playground",
-        cmd = { "TSPlaygroundToggle" },
-        config = function()
-            require("nvim-treesitter.configs").setup {
-                playground = {
-                    enable = true,             -- Enable the playground
-                    disable = {},              -- Optionally disable for specific languages
-                    updatetime = 25,           -- Debounced time for highlighting nodes (in ms)
-                    persist_queries = false,   -- Whether the query persists across Vim sessions
-                    keybindings = {
-                        toggle_query_editor = "o",
-                        toggle_hl_groups = "i",
-                        toggle_injected_languages = "t",
-                        toggle_anonymous_nodes = "a",
-                        toggle_language_display = "I",
-                        focus_language = "f",
-                        unfocus_language = "F",
-                        update = "R",
-                        goto_node = "<cr>",
-                        show_help = "?",
-                    },
-                },
-            }
-        end
-    },
-
     -- Autoindents blank lines and colours indentations
     {
         -- TODO: Rice this
