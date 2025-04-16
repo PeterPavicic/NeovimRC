@@ -1,10 +1,12 @@
-;; Inject GraphQL when the string content starts with "graphql" or "gql"
-; ((string_content) @graphql
-;   (#set! injection.language "graphql")
-;   ;; This pattern allows any whitespace or newlines before "graphql" or "gql"
-;   (#match? @graphql "^[[:space:]]*(graphql|gql)")
-; )
+; extends
 
-((string_content) @graphql
+; only inject GraphQL into triple‑quoted python strings
+(
+  (string
+    (string_content) @injection.content
+  )
+  ;; predicate: must start (after any whitespace/newlines) with "graphql" or "gql"
+  (#match? @injection.content "^[[:space:]\r\n]*(query)")
+  ;; action: hand off that capture to the graphql parser
   (#set! injection.language "graphql")
 )
