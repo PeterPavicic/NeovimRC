@@ -14,7 +14,16 @@ return {
         opts = require "configs.todo-comments",
         lazy = false,
     },
+  -- These are some examples, uncomment them if you want to see them work!
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "configs.lspconfig"
+    end,
+  },
 
+  -- test new blink
+  -- { import = "nvchad.blink.lazyspec" },
     {
         -- Basic Nnvim LSP Client configurations for LSP servers
         "neovim/nvim-lspconfig",
@@ -23,6 +32,15 @@ return {
         end,
     },
 
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
     {
         "ray-x/lsp_signature.nvim",
         -- TODO: Rewrite this to using 'opts' for practice 
