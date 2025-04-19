@@ -33,28 +33,29 @@ vim.lsp.enable(servers)
 
 -- TODO: Determine if this is necessary
 
-   -- require'nvim-treesitter.configs'.setup {
-   --   ensure_installed = { "python", "graphql" },
-   --   highlight = { enable = true },
-   --   -- Other settings …
-   -- }
+-- require'nvim-treesitter.configs'.setup {
+--   ensure_installed = { "python", "graphql" },
+--   highlight = { enable = true },
+--   -- Other settings …
+-- }
 
 
 -- Uncomment for PyRight setup
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.pyright.setup {
-  capabilities = capabilities,
-  settings = {
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
-}
+-- lspconfig.pyright.setup {
+--     cmd = { vim.fn.stdpath("data") .. "/mason/bin/pyright-langserver", "--stdio" },
+--     capabilities = capabilities,
+--     settings = {
+--         python = {
+--             analysis = {
+--                 autoSearchPaths = true,
+--                 useLibraryCodeForTypes = true,
+--             },
+--         },
+--     },
+-- }
 
 
