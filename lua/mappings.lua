@@ -27,7 +27,7 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- greatest remap ever (paste no replace)
-map("x", "<leader>p", [["_dP]], { desc = "Paste and keep yank" })
+map("x", "<leader>p", "\"_dP", { desc = "Paste and keep yank" })
 
 map({"n", "v"}, "<leader>d", "\"_d", { desc = "Delete into void"} )
 
