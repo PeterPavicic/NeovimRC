@@ -87,6 +87,50 @@ return {
     --     end,
     -- },
 
+
+    -- R stuff:
+
+    {
+        "R-nvim/R.nvim",
+        lazy = true,
+        ft   = { "r", "rmd", "quarto", "rnoweb", "rhelp" },
+        config = function()
+            require("r").setup()
+        end,
+    },
+
+    -- cmp-r: a cmp source that piggy‑backs on R.nvim
+    {
+        "R-nvim/cmp-r",
+        dependencies = {
+            "R-nvim/R.nvim",      -- backend provider
+            "hrsh7th/nvim-cmp",    -- completion engine
+        },
+        lazy = true,
+        ft   = { "r", "rmd", "quarto", "rnoweb", "rhelp" },
+        config = function()
+            -- optional: override defaults (filetypes, doc_width, trigger_characters…)
+            require("cmp_r").setup({
+                -- filetypes = {"r","rmd","quarto","rnoweb","rhelp"},
+                -- doc_width = 60,
+                -- trigger_characters = { " ", ":", "(", '"', "@", "$" },
+            })
+        end,
+        -- ensure cmp-r is loaded after nvim-cmp
+        after = "nvim-cmp",
+    },
+
+    -- now inject cmp-r into NVChad’s cmp sources
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = { "R-nvim/cmp-r" },
+        opts = function(_, opts)
+            -- unshift cmp_r so it has highest priority
+            table.insert(opts.sources, 1, { name = "cmp_r" })
+            return opts
+        end,
+    },
+
     -- NOTE: Potential plugins 
     -- Linter
     -- https://github.com/mfussenegger/nvim-lint
@@ -97,7 +141,6 @@ return {
     -- https://github.com/ThePrimeagen/harpoon
     -- Undotree:
     -- https://github.com/mbbill/undotree
-    -- All the R stuff
 
 
 }

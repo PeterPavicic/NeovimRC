@@ -48,7 +48,9 @@ map("n", "j", "gj")
 map("n", "k", "gk")
 
 
--- Format json files
+map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "jk", "<C-\\><C-n>")
 
+-- Format json files
 -- WARNING: Requires jq installation
 map("n", "<leader>jq", "<CMD>%!jq<CR>")-- TODO: Fix this so it only works if current file is json file
