@@ -114,6 +114,9 @@ return {
                 -- filetypes = {"r","rmd","quarto","rnoweb","rhelp"},
                 -- doc_width = 60,
                 -- trigger_characters = { " ", ":", "(", '"', "@", "$" },
+                sources = {
+                    { name = 'cmp_r' },
+                }
             })
         end,
         -- ensure cmp-r is loaded after nvim-cmp
@@ -130,6 +133,17 @@ return {
             return opts
         end,
     },
+
+
+    -- -- TODO: Load and configure this
+    -- {
+    --     "lervag/vimtex",
+    --     ft = { "tex", "latex", "rmd", "quarto" },
+    --     config = function()
+    --         vim.g.vimtex_view_method = "zathura"
+    --         vim.g.vimtex_compiler_method = "latexmk"
+    --     end
+    -- },
 
     -- NOTE: Potential plugins 
     -- Linter

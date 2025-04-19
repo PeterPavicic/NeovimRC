@@ -54,3 +54,9 @@ map("t", "jk", "<C-\\><C-n>")
 -- Format json files
 -- WARNING: Requires jq installation
 map("n", "<leader>jq", "<CMD>%!jq<CR>")-- TODO: Fix this so it only works if current file is json file
+
+-- open/close Tabs
+map("n", "<leader>T", ":tabnew<CR>", { desc = "Open new tab"})
+map("n", "<leader>X", ":tabclose<CR>",  { desc = "Close current tab"} )
+
+

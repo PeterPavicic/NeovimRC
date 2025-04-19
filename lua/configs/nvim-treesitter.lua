@@ -7,6 +7,8 @@ require('nvim-treesitter.configs').setup({
         "json",
         "lua",
         "markdown",
+        -- "markdown-inline",
+        -- "latex",
         "python",
         "r",
         "typescript",
