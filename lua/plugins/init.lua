@@ -14,14 +14,8 @@ return {
         opts = require "configs.todo-comments",
         lazy = false,
     },
-    -- These are some examples, uncomment them if you want to see them work!
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require "configs.lspconfig"
-        end,
-    },
 
+    -- These are some examples, uncomment them if you want to see them work!
     -- test new blink
     -- { import = "nvchad.blink.lazyspec" },
     {
@@ -66,6 +60,16 @@ return {
         build = ":TSUpdate",
         config = function()
             require("configs.nvim-treesitter")
+        end
+    },
+
+
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "BufReadPost",
+        dependencies = {"nvim-treesitter/nvim-treesitter"},
+        config = function()
+            require("configs.nvim-treesitter-context")
         end
     },
 
@@ -134,6 +138,7 @@ return {
         end,
     },
 
+
     {
         "chentoast/marks.nvim",
         event = "VeryLazy",
@@ -172,8 +177,29 @@ return {
             },
             mappings = {}
         },
-    }
+    },
 
+    {
+        "mbbill/undotree",
+        config = function() 
+            require("configs.undotree")
+        end,
+        event = "BufReadPost",
+    },
+
+
+    {
+        "toppair/peek.nvim",
+        event = { "VeryLazy" },
+        build = "deno task --quiet build:fast",
+        config = function()
+            require("peek").setup({
+                filetype = { 'markdown', 'conf' }
+            })
+            vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+            vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+        end,
+    },
 
 
     -- -- TODO: Load and configure this
@@ -196,6 +222,4 @@ return {
     -- https://github.com/ThePrimeagen/harpoon
     -- Undotree:
     -- https://github.com/mbbill/undotree
-
-
 }
