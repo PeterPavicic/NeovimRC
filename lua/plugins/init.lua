@@ -188,13 +188,19 @@ return {
     },
 
 
+    -- FIX: Peek.nvim not working at all as of right now, test on obsidian files
     {
         "toppair/peek.nvim",
         event = { "VeryLazy" },
         build = "deno task --quiet build:fast",
         config = function()
             require("peek").setup({
-                filetype = { 'markdown', 'conf' }
+                filetype = { 
+                    "markdown", 
+                    "conf", 
+                    "md",
+                    "Rmd"
+                }
             })
             vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
             vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
