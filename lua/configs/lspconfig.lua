@@ -1,33 +1,34 @@
--- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local nvlsp     = require("nvchad.configs.lspconfig")
-local lspconfig = require "lspconfig"
-
+local servers = { "html", "cssls" }
+-- local nvlsp     = require("nvchad.configs.lspconfig")
+-- local lspconfig = require "lspconfig"
+-- 
 -- load NVChad defaults for on_attach, capabilities, etc.
-nvlsp.defaults()
-
-
-
+-- nvlsp.defaults()
+-- 
+-- 
+-- 
 -- now configure Marksman:
-lspconfig.marksman.setup {
-  on_attach    = nvlsp.on_attach,
-  on_init      = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-  filetypes    = { "markdown", "rmd", "rmarkdown", "quarto" },
-}
-
-
-local servers = {
-    "cssls",
-    "html",
-    "pyright",
-    "markdown"
-    -- "r_language_server"
-}
+-- lspconfig.marksman.setup {
+--   on_attach    = nvlsp.on_attach,
+--   on_init      = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+--   filetypes    = { "markdown", "rmd", "rmarkdown", "quarto" },
+-- }
+-- 
+-- 
+-- local servers = {
+--     "cssls",
+--     "html",
+--     "pyright",
+--     "markdown"
+--     -- "r_language_server"
+-- }
 
 vim.lsp.enable(servers)
 
+-- read :h vim.lsp.config for changing options of lsp servers 
 
 -- No idea what this is, it was commented originally also
 

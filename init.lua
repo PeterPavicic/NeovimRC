@@ -30,7 +30,7 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
-require "nvchad.autocmds"
+require "autocmds"
 
 -- Yank highlighting
 vim.api.nvim_create_autocmd("TextYankPost", {
