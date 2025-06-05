@@ -1,44 +1,50 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls" }
--- local nvlsp     = require("nvchad.configs.lspconfig")
--- local lspconfig = require "lspconfig"
--- 
--- load NVChad defaults for on_attach, capabilities, etc.
--- nvlsp.defaults()
--- 
--- 
--- 
--- now configure Marksman:
+local servers = {
+    -- "cssls",
+    -- "html",
+    "prettier",
+    "pyright",
+    "marksman",
+    "luals",
+    "r_language_server"
+}
+
+-- NOTE: In order for to get these LSPs to work, Mason install:
+-- bash-language-server
+-- lua-language-server
+-- marksman
+-- pyright
+-- r-languageserver
+-- stylua
+-- prettier
+-- And run the following in R:
+-- install.packages("languageserver")
+
+
+-- vim.lsp.config('*')
+
+vim.lsp.config('*', {
+    capabilities = {
+        textDocument = {
+            semanticTokens = {
+                multilineTokenSupport = true,
+            }
+        }
+    }
+})
+
+vim.lsp.enable(servers)
+
+-- read :h vim.lsp.config for changing options of lsp servers 
+
+-- Old Marksman setup:
 -- lspconfig.marksman.setup {
 --   on_attach    = nvlsp.on_attach,
 --   on_init      = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
 --   filetypes    = { "markdown", "rmd", "rmarkdown", "quarto" },
 -- }
--- 
--- 
--- local servers = {
---     "cssls",
---     "html",
---     "pyright",
---     "markdown"
---     -- "r_language_server"
--- }
-
-vim.lsp.enable(servers)
-
--- read :h vim.lsp.config for changing options of lsp servers 
-
--- No idea what this is, it was commented originally also
-
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
-
 
 
 -- lspconfig.pyright.setup {
@@ -47,20 +53,8 @@ vim.lsp.enable(servers)
 --     capabilities = nvlsp.capabilities
 -- }
 
--- TODO: Determine if this is necessary
-
--- require'nvim-treesitter.configs'.setup {
---   ensure_installed = { "python", "graphql" },
---   highlight = { enable = true },
---   -- Other settings …
--- }
-
-
--- Uncomment for PyRight setup
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+-- Old PyRight setup
+--
 -- lspconfig.pyright.setup {
 --     cmd = { vim.fn.stdpath("data") .. "/mason/bin/pyright-langserver", "--stdio" },
 --     capabilities = capabilities,
