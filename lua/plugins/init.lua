@@ -188,19 +188,22 @@ return {
     },
 
 
-    -- FIX: Peek.nvim not working at all as of right now, test on obsidian files
+    -- Install deno to fix: 
+    -- sudo pacman -S webkit2gtk 
+    -- deno add jsr:@webview/webview (in ~/.config/nvim)
     {
         "toppair/peek.nvim",
         event = { "VeryLazy" },
         build = "deno task --quiet build:fast",
         config = function()
             require("peek").setup({
-                filetype = { 
-                    "markdown", 
-                    "conf", 
+                filetype = {
+                    "markdown",
+                    "conf",
                     "md",
                     "Rmd"
-                }
+                },
+                app = "webview",
             })
             vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
             vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
