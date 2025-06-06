@@ -7,7 +7,7 @@ local servers = {
     "pyright",
     "marksman",
     "luals",
-    -- "r_language_server",
+    "r_language_server",
     -- TODO: Try out jupytext
     -- "jupytext"
 }
