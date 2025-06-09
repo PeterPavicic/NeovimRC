@@ -6,7 +6,8 @@ local o = vim.o
 o.cursorlineopt = 'both'
 
 -- set clipboard to system clipboard
-o.clipboard = "unnamedplus"
+-- o.clipboard = "unnamedplus"
+o.clipboard = ""
 
 o.nu = true
 o.relativenumber = true
