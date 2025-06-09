@@ -59,4 +59,6 @@ map("n", "<leader>jq", "<CMD>%!jq<CR>")-- TODO: Fix this so it only works if cur
 map("n", "<leader>T", ":tabnew<CR>", { desc = "Open new tab"})
 map("n", "<leader>X", ":tabclose<CR>",  { desc = "Close current tab"} )
 
+-- map("n", "<leader>h", "<nop>")
+
 

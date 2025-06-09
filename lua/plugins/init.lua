@@ -210,6 +210,41 @@ return {
     end,
   },
 
+
+  -- TODO: Figure these out
+
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+  --   opts = function()
+  --     return require "configs.nvimtree"
+  --   end,
+  --   enabled = true,
+  -- },
+
+
+
+  -- {
+  --   'stevearc/oil.nvim',
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   -- Optional dependencies
+  --   dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  --   lazy = false,
+  -- },
+
+  -- {
+  --   "ThePrimeagen/harpoon",
+  --   branch = "harpoon2",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("configs.harpoon2")
+  --   end
+  -- },
+
   -- TODO: Try out oil.nvim
   -- TODO: Try out obsidian.nvim
 
