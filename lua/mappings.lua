@@ -62,3 +62,4 @@ map("n", "<leader>X", ":tabclose<CR>",  { desc = "Close current tab"} )
 map("n", "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
 map("n", "<leader>P", "\"+P", { desc = "Paste from system clipboard" })
 
+

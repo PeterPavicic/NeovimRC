@@ -210,6 +210,10 @@ return {
     end,
   },
 
+  {
+    "ThePrimeagen/vim-be-good",
+    event = { "VeryLazy" },
+  },
 
   -- TODO: Figure these out
 
