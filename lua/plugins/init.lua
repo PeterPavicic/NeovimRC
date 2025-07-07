@@ -134,6 +134,13 @@ return {
     opts = function(_, opts)
       -- unshift cmp_r so it has highest priority
       table.insert(opts.sources, 1, { name = "cmp_r" })
+
+      -- disable autocompletion popup
+      opts.completion = {
+        -- autocomplete = true,     -- Ensure autocompletion is enabled
+        keyword_length = 3,
+      }
+
       return opts
     end,
   },
@@ -215,6 +222,16 @@ return {
     event = { "VeryLazy" },
   },
 
+  {
+    "lervag/vimtex",
+    lazy = false,     -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_general_viewer = "okular"
+      -- vim.g.maplocalleader = "\\"
+    end
+  },
   -- TODO: Figure these out
 
   -- {
