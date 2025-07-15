@@ -234,14 +234,14 @@ return {
   },
   -- TODO: Figure these out
 
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-  --   opts = function()
-  --     return require "configs.nvimtree"
-  --   end,
-  --   enabled = true,
-  -- },
+  -- This is an extension of the default opts in NVChad
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = function()
+      return require "configs.nvimtree"
+    end,
+    enabled = true,
+  },
 
 
 
