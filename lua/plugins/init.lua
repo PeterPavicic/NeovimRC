@@ -245,8 +245,9 @@ return {
   {
     "tpope/vim-fugitive",
     config = function()
-      require "configs.vim-fugitive"
+      require "configs.fugitive"
     end,
+    lazy = false,
   },
 
 
