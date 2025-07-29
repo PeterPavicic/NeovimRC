@@ -22,8 +22,7 @@ local servers = {
 -- install.packages("languageserver")
 
 
--- vim.lsp.config('*')
-
+-- For all LSPs
 vim.lsp.config('*', {
     capabilities = {
         textDocument = {
@@ -35,37 +34,3 @@ vim.lsp.config('*', {
 })
 
 vim.lsp.enable(servers)
-
--- read :h vim.lsp.config for changing options of lsp servers 
-
--- Old Marksman setup:
--- lspconfig.marksman.setup {
---   on_attach    = nvlsp.on_attach,
---   on_init      = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
---   filetypes    = { "markdown", "rmd", "rmarkdown", "quarto" },
--- }
-
-
--- lspconfig.pyright.setup {
---     on_attach = nvlsp.on_attach,
---     on_init = nvlsp.on_init,
---     capabilities = nvlsp.capabilities
--- }
-
--- Old PyRight setup
---
--- lspconfig.pyright.setup {
---     cmd = { vim.fn.stdpath("data") .. "/mason/bin/pyright-langserver", "--stdio" },
---     capabilities = capabilities,
---     settings = {
---         python = {
---             analysis = {
---                 autoSearchPaths = true,
---                 useLibraryCodeForTypes = true,
---             },
---         },
---     },
--- }
-
-
