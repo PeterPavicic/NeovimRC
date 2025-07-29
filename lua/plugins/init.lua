@@ -234,7 +234,7 @@ return {
   },
   -- TODO: Figure these out
 
-  -- This is an extension of the default opts in NVChad
+  -- This is an extension of the default opts from NVChad
   {
     "nvim-tree/nvim-tree.lua",
     opts = function()
@@ -242,6 +242,14 @@ return {
     end,
     enabled = true,
   },
+
+
+  {
+    "tpope/vim-fugitive",
+    config = function()
+      require "configs.vim-fugitive"
+    end,
+  }
 
 
 
