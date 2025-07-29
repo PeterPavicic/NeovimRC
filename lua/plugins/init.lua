@@ -28,7 +28,6 @@ return {
 
   {
     "ray-x/lsp_signature.nvim",
-    -- TODO: Rewrite this to using 'opts' for practice 
     event = "LspAttach",
     opts = require "configs.lsp_signature"
   },
@@ -232,7 +231,6 @@ return {
       -- vim.g.maplocalleader = "\\"
     end
   },
-  -- TODO: Figure these out
 
   -- This is an extension of the default opts from NVChad
   {
@@ -249,52 +247,10 @@ return {
     config = function()
       require "configs.vim-fugitive"
     end,
-  }
+  },
 
 
-
-  -- {
-  --   'stevearc/oil.nvim',
-  --   ---@module 'oil'
-  --   ---@type oil.SetupOpts
-  --   opts = {},
-  --   -- Optional dependencies
-  --   dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-  --   lazy = false,
-  -- },
-
-  -- {
-  --   "ThePrimeagen/harpoon",
-  --   branch = "harpoon2",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   config = function()
-  --     require("configs.harpoon2")
-  --   end
-  -- },
-
-  -- TODO: Try out oil.nvim
-  -- TODO: Try out obsidian.nvim
-
-  -- -- TODO: Load and configure this
-  -- {
-  --     "lervag/vimtex",
-  --     ft = { "tex", "latex", "rmd", "quarto" },
-  --     config = function()
-  --         vim.g.vimtex_view_method = "zathura"
-  --         vim.g.vimtex_compiler_method = "latexmk"
-  --     end
-  -- },
-
-  -- NOTE: Potential plugins 
-  -- Linter
-  -- https://github.com/mfussenegger/nvim-lint
-  -- https://www.perforce.com/blog/qac/what-is-linting
-  -- Some stuff from Kickstart: 
-  -- https://github.com/nvim-lua/kickstart.nvim/blob/master/lua/kickstart/plugins/
-  -- Harpoon:
-  -- https://github.com/ThePrimeagen/harpoon
-  -- Undotree:
-  -- https://github.com/mbbill/undotree
+  -- TODO: Implement obsidian.nvim
+  -- TODO: Implement mfussenegger/nvim-dap
+  -- TODO: Find plugin for ipython/jupyter notebooks 
 }

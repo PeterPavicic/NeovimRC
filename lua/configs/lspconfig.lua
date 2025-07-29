@@ -8,8 +8,6 @@ local servers = {
     "marksman",
     "luals",
     "r_language_server",
-    -- TODO: Try out jupytext
-    -- "jupytext"
 }
 
 -- NOTE: In order for to get these LSPs to work, Mason install:
