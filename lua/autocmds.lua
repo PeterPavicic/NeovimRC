@@ -12,7 +12,7 @@ autocmd("TextYankPost", {
 })
 
 -- Removes undotree from buffer (avoids crashing)
-autocmd("FileType", {
+autocmd({"FileType"}, {
   pattern = "undotree",
   callback = function()
     vim.schedule(function()
@@ -54,4 +54,18 @@ autocmd({ "BufReadPost" }, {
         -- print("loadview 1 executed for buffer: " .. vim.fn.bufname())
       end
     end,
+})
+
+local markdown_group = augroup('ObsidianGroup', { clear = true })
+
+autocmd( {"FileType"} , {
+  pattern = 'markdown',
+  group = markdown_group,
+  desc = 'Set conceallevel 2 for markdown files', -- A helpful description
+  callback = function()
+    -- Set conceallevel to 2 locally for the buffer
+    -- 1: Shows a placeholder for hidden characters.
+    -- 2: Hides markup characters completely.
+    vim.opt_local.conceallevel = 2
+  end,
 })
