@@ -1,6 +1,15 @@
 require "nvchad.autocmds"
 
 local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+
+-- Yank highlighting
+autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
 
 -- Removes undotree from buffer (avoids crashing)
 autocmd("FileType", {
@@ -15,4 +24,34 @@ autocmd("FileType", {
       vim.cmd.redrawtabline()
     end)
   end,
+})
+
+
+-- Remember folds for buffers
+local remember_folds_group = augroup("RememberFolds", { clear = true })
+
+-- Right after buffer saved to file
+autocmd({ "BufWritePost" }, {
+  group = remember_folds_group,
+  pattern = "?*",
+  callback = function()
+    -- Only for normal buffers
+    if vim.bo.buftype == "" then
+      vim.cmd([[silent! mkview 1]])
+      -- print("mkview 1 executed for buffer: " .. vim.fn.bufname())
+    end
+  end,
+})
+
+-- Right after buffer read from file
+autocmd({ "BufReadPost" }, {
+    group = remember_folds_group,
+    pattern = "?*",
+    callback = function()
+      -- Only for normal buffers
+      if vim.bo.buftype == "" then
+        vim.cmd([[silent! loadview 1]])
+        -- print("loadview 1 executed for buffer: " .. vim.fn.bufname())
+      end
+    end,
 })
