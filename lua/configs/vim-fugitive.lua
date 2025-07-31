@@ -1,4 +1,6 @@
 -- Copied from https://github.com/ThePrimeagen/init.lua/
+-- TODO: rewrite this so it's with other autocommands
+-- and mappings
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
