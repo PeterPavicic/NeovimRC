@@ -8,6 +8,7 @@ local servers = {
     "marksman",
     "luals",
     "r_language_server",
+    "bashls",
 }
 
 -- NOTE: In order for to get these LSPs to work, Mason install:
