@@ -9,6 +9,7 @@ local servers = {
     "luals",
     "r_language_server",
     "bashls",
+    "jdtls",
 }
 
 -- NOTE: In order for to get these LSPs to work, Mason install:
