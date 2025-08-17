@@ -42,8 +42,8 @@ map("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {
 
 
 -- Move up and down between visual lines instead of logical ones.
-map("n", "j", "gj")
-map("n", "k", "gk")
+map({"n", "x"}, "j", "gj")
+map({"n", "x"}, "k", "gk")
 
 
 map("t", "<Esc>", "<C-\\><C-n>")
