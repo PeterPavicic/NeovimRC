@@ -30,6 +30,9 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+-- add thesaurus file
+vim.o.thesaurus = vim.fn.stdpath('config') .. '/thesaurus/mthesaurus.txt'
+
 require "options"
 require "autocmds"
 

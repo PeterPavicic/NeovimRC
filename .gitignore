@@ -2,3 +2,4 @@ lazy-lock.json
 deno.json
 deno.lock
 .stylua.toml
+spell/
