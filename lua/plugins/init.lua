@@ -266,7 +266,6 @@ return {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
       "nvim-telescope/telescope.nvim",
-      "nvim-telescope/telescope.nvim"
     },
     opts = require "configs.obsidian",
     lazy = true,
@@ -296,7 +295,74 @@ return {
       },
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
-  }
+  },
+
+  {
+    "folke/twilight.nvim",
+    opts = {
+      context = 4,
+    }
+  },
+
+
+  {
+    "folke/zen-mode.nvim",
+    ft = "tex",
+    opts = {
+      window = {
+        backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+        -- height and width can be:
+        -- * an absolute number of cells when > 1
+        -- * a percentage of the width / height of the editor when <= 1
+        -- * a function that returns the width or the height
+        width = 0.8, -- width of the Zen window
+        height = 1, -- height of the Zen window
+        -- by default, no options are changed for the Zen window
+        -- comment the lines to not apply the options
+        options = {
+          signcolumn = "no", -- disable signcolumn
+          number = false, -- disable number column
+          relativenumber = false, -- disable relative numbers
+          cursorline = false, -- disable cursorline
+          cursorcolumn = false, -- disable cursor column
+          foldcolumn = "0", -- disable fold column
+          list = false, -- disable listchars
+        },
+      },
+      plugins = {
+        -- disable some global vim options (vim.o)
+        options = {
+          enabled = true,
+          ruler = false, -- disables the ruler text in the cmd line area
+          showcmd = false, -- disables the command in the last line of the screen
+          laststatus = 0,
+        },
+        twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+        gitsigns = { enabled = false }, -- disables gitsigns in zen mode
+        kitty = {
+          enabled = true,
+          font = "+2", -- font size increment
+        },
+        tmux = { enabled = true }, -- disables the tmux statusline
+      },
+      -- -- callback where you can add custom code when Zen mode opens
+      on_open = function()
+        vim.g._zen_old_showtabline = vim.o.showtabline
+        vim.g._zen_old_winbar = vim.o.winbar
+        vim.o.showtabline = 0
+        vim.o.winbar = ""
+        vim.cmd("TSContext disable")
+      end,
+      -- -- callback where you can add custom code when Zen mode closes
+      on_close = function()
+        vim.o.showtabline = vim.g._zen_old_showtabline or 2
+        vim.o.winbar = vim.g._zen_old_winbar or ""
+        vim.cmd("TSContext enable")
+      end,
+    },
+    dependencies = "folke/twilight.nvim"
+  },
+
 
   -- TODO: Implement mfussenegger/nvim-dap
   -- TODO: Find plugin for ipython/jupyter notebooks 
