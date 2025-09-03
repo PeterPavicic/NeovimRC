@@ -21,6 +21,9 @@ return {
   {
     -- Basic Nnvim LSP Client configurations for LSP servers
     "neovim/nvim-lspconfig",
+
+    ft = {"tex", "bib"},
+
     config = function()
       require "configs.lspconfig"
     end,

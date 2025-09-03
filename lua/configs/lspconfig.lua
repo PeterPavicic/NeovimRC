@@ -3,6 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = {
     -- "cssls",
     -- "html",
+    "texlab",
     "prettier",
     "pyright",
     "marksman",
