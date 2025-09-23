@@ -346,6 +346,7 @@ return {
           enabled = true,
           font = "+2", -- font size increment
         },
+        todo = { enabled = true },
         tmux = { enabled = true }, -- disables the tmux statusline
       },
       -- -- callback where you can add custom code when Zen mode opens
