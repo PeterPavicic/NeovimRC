@@ -367,6 +367,19 @@ return {
     dependencies = "folke/twilight.nvim"
   },
 
+  {
+    "chomosuke/typst-preview.nvim",
+    build = function()
+      require("typst-preview").update()
+    end,
+    config = function()
+      require("typst-preview").setup({
+        -- optional configuration here
+      })
+    end,
+    ft = "typst", -- optional, to lazy-load only for Typst files
+  },
+
 
   -- TODO: Implement mfussenegger/nvim-dap
   -- TODO: Find plugin for ipython/jupyter notebooks 
