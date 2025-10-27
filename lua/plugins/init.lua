@@ -132,7 +132,7 @@ return {
   -- now inject cmp-r into NVChad’s cmp sources
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "R-nvim/cmp-r" },
+    -- dependencies = { "R-nvim/cmp-r" },
     opts = function(_, opts)
       -- unshift cmp_r so it has highest priority
       table.insert(opts.sources, 1, { name = "cmp_r" })
