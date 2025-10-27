@@ -190,7 +190,7 @@ return {
 
   {
     "mbbill/undotree",
-    config = function() 
+    config = function()
       require("configs.undotree")
     end,
     event = "BufReadPost",
@@ -243,7 +243,6 @@ return {
     end,
     enabled = true,
   },
-
 
   {
     "tpope/vim-fugitive",
@@ -307,7 +306,6 @@ return {
     }
   },
 
-
   {
     "folke/zen-mode.nvim",
     ft = "tex",
@@ -369,14 +367,9 @@ return {
 
   {
     "chomosuke/typst-preview.nvim",
-    build = function()
-      require("typst-preview").update()
-    end,
-    config = function()
-      require("typst-preview").setup({
-        -- optional configuration here
-      })
-    end,
+    lazy = false,     -- we don't want to lazy load typst preview
+    version = '1.*',
+    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
     ft = "typst", -- optional, to lazy-load only for Typst files
   },
 

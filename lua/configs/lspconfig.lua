@@ -4,10 +4,10 @@ local servers = {
     -- "cssls",
     -- "html",
     "texlab",
-    "prettier",
+    "tinymist",
     "pyright",
     "marksman",
-    "luals",
+    "lua_ls",
     "r_language_server",
     "bashls",
     "jdtls",
@@ -20,7 +20,6 @@ local servers = {
 -- pyright
 -- r-languageserver
 -- stylua
--- prettier
 -- And run the following in R:
 -- install.packages("languageserver")
 
