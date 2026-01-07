@@ -105,49 +105,6 @@ return {
     end,
   },
 
-  -- cmp-r: a cmp source that piggy‑backs on R.nvim
-  {
-    "R-nvim/cmp-r",
-    dependencies = {
-      "R-nvim/R.nvim",      -- backend provider
-      "hrsh7th/nvim-cmp",    -- completion engine
-    },
-    lazy = true,
-    ft   = { "r", "rmd", "quarto", "rnoweb", "rhelp" },
-    config = function()
-      -- optional: override defaults (filetypes, doc_width, trigger_characters…)
-      require("cmp_r").setup({
-        -- filetypes = {"r","rmd","quarto","rnoweb","rhelp"},
-        -- doc_width = 60,
-        -- trigger_characters = { " ", ":", "(", '"', "@", "$" },
-        sources = {
-          { name = 'cmp_r' },
-        }
-      })
-    end,
-    -- ensure cmp-r is loaded after nvim-cmp
-    after = "nvim-cmp",
-  },
-
-  -- now inject cmp-r into NVChad’s cmp sources
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = { "R-nvim/cmp-r" },
-    opts = function(_, opts)
-      -- unshift cmp_r so it has highest priority
-      table.insert(opts.sources, 1, { name = "cmp_r" })
-
-      -- disable autocompletion popup
-      opts.completion = {
-        -- autocomplete = true,     -- Ensure autocompletion is enabled
-        keyword_length = 3,
-      }
-
-      return opts
-    end,
-  },
-
-
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",
