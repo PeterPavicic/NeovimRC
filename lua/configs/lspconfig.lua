@@ -11,6 +11,7 @@ local servers = {
     "r_language_server",
     "bashls",
     "jdtls",
+    "hyprls"
 }
 
 -- NOTE: In order for to get these LSPs to work, Mason install:
