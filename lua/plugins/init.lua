@@ -201,6 +201,13 @@ return {
     enabled = true,
   },
 
+  -- FIX: Not working
+  {
+    "prichrd/netrw.nvim",
+    opts = {},
+    enabled = true,
+  },
+
   {
     "tpope/vim-fugitive",
     config = function()
