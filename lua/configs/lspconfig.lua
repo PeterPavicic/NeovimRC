@@ -1,18 +1,19 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = {
-    -- "cssls",
-    -- "html",
-    "texlab",
-    "tinymist",
-    "pyright",
-    "marksman",
-    "lua_ls",
-    "r_language_server",
-    "bashls",
-    "jdtls",
-    "hyprls",
-    "cssls"
+  -- "cssls",
+  -- "html",
+  "texlab",
+  "tinymist",
+  "pyright",
+  "marksman",
+  "lua_ls",
+  "r_language_server",
+  "bashls",
+  "jdtls",
+  "hyprls",
+  "cssls",
+  "jsonls"
 }
 
 -- NOTE: In order for to get these LSPs to work, Mason install:
@@ -28,13 +29,13 @@ local servers = {
 
 -- For all LSPs
 vim.lsp.config('*', {
-    capabilities = {
-        textDocument = {
-            semanticTokens = {
-                multilineTokenSupport = true,
-            }
-        }
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      }
     }
+  }
 })
 
 vim.lsp.enable(servers)
