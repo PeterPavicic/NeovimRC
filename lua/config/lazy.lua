@@ -17,13 +17,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  -- lazy-load by default
 
   spec = {
     -- import your plugins
     { import = "plugins" },
   },
 
+  -- lazy-load by default
   defaults = {
     lazy = true
   },
