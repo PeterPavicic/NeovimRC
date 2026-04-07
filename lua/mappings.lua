@@ -95,8 +95,4 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})
 -- map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 -- map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>", { desc = "telescope find all files" })
 
--- whichkey
--- vim.keymap.set("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
--- vim.keymap.set("n", "<leader>wk", function()
---   vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
--- end, { desc = "whichkey query lookup" })-
+vim.keymap.set("n", "<leader>u", require("undotree").open, { desc = "Toggle undotree" })

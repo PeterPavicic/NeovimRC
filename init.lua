@@ -8,6 +8,9 @@ vim.g.maplocalleader = "\\"
 -- load Lazy
 require "config.lazy"
 
+-- load undotree
+vim.cmd("packadd nvim.undotree")
+
 -- load mappings
 require "mappings"
 
@@ -19,5 +22,3 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 
--- For example, to add the "nohlsearch" package to automatically turn off search highlighting after 'updatetime' and when going to insert mode
--- vim.cmd('packadd! nohlsearch')
