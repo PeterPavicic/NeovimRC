@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   -- Inserts colourful TODO, etc notes.
   -- TODO: test
