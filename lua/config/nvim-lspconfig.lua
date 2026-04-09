@@ -14,8 +14,7 @@ local servers = {
   "tinymist",
 }
 
-
-local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+local default_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- Enable basic capabilities for all LSPs
 vim.lsp.config('*', {
