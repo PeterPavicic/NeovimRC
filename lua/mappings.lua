@@ -98,4 +98,9 @@ vim.keymap.set("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>"
 vim.keymap.set("n", "<leader>gst", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 vim.keymap.set("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", { desc = "telescope theme (colourscheme)" })
 
+-- undotree
 vim.keymap.set("n", "<leader>u", require("undotree").open, { desc = "Toggle undotree" })
+
+-- oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open oil in floating window" })
