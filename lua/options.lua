@@ -49,7 +49,7 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
-vim.o.laststatus = 2
+vim.o.laststatus = 3
 
 -- don't show the current mode
 vim.o.showmode = true
@@ -77,7 +77,8 @@ vim.o.splitright = true
 -- how long Neovim waits for next keypress for it to count as a sequence
 vim.o.timeoutlen = 500
 
--- TODO: Check if without this undotree works
+vim.o.showmode = false
+
 vim.o.undofile = true
 
 -- add binaries installed by mason.nvim to path
