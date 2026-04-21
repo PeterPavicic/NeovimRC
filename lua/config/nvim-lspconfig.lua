@@ -9,7 +9,6 @@ local servers = {
   "marksman",
   "prettier",
   "pyright",
-  "r_language_server",
   "texlab",
   "tinymist",
 }
