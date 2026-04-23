@@ -43,17 +43,15 @@ vim.keymap.set({"n", "v"}, "<leader>x", "\"_x", { desc = "Delete into void"} )
 -- next greatest remap ever (yank into system clipboard)
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank to system clipboard" })
+-- paste to/from system clipboard
+vim.keymap.set("n", "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
+vim.keymap.set("n", "<leader>P", "\"+P", { desc = "Paste from system clipboard" })
 
 -- avoid Ex mode
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Open :h help for word under cursor
 -- vim.keymap.set("n", "<leader>h", [[:h <<C-r><C-w><CR>]], { desc = "Search word under cursor in manual"} )
-
--- Format json files
--- TODO: Fix this so it only works if current file is json file
--- and checks for jq installation
-vim.keymap.set("n", "<leader>jq", "<CMD>%!jq<CR>", {desc = "Format JSON files"})
 
 -- open/close tabs
 vim.keymap.set("n", "<leader>T", "<CMD>tabnew<CR>", { desc = "Open new tab"})
@@ -63,10 +61,7 @@ vim.keymap.set("n", "<leader>Q", "<CMD>tabclose<CR>",  { desc = "Close current t
 vim.keymap.set("n", "<leader>B", "<CMD>enew<CR>", { desc = "Open new buffer"})
 vim.keymap.set("n", "<leader>q", "<CMD>bdelete<CR>",  { desc = "Close current buffer"} )
 
-
-vim.keymap.set("n", "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
-vim.keymap.set("n", "<leader>P", "\"+P", { desc = "Paste from system clipboard" })
-
+-- save/copy file
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<C-c>", "<cmd>%y<CR>", { desc = "Copy whole file" })
 vim.keymap.set("n", "<leader><C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file to system clipboard" })
@@ -77,7 +72,6 @@ vim.keymap.set("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true }
 
 -- Clear highlights after search
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
-
 
 -- LSP mappings
 vim.keymap.set("n", "<leader>ds", vim.diagnostic.setloclist, {desc = "LSP diagnostic loclist"})
