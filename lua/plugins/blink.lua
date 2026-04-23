@@ -26,7 +26,15 @@ return {
       preset = 'default',
       ["<Tab>"] = {"select_next", "fallback"},
       ["<S-Tab>"] = {"select_prev", "fallback"},
-      ["<CR>"] = {"accept", "fallback"},
+      ["<CR>"] = {
+        function(cmp)
+          if cmp.is_visible() then
+            return cmp.accept()
+          end
+          -- if cmp is not visible, return nothing and fall through to fallback
+        end,
+        "fallback",
+      },
       ["C-space"] = {"show_and_insert", "fallback"},
     },
 
