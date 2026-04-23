@@ -52,28 +52,3 @@ autocmd("BufReadPost", {
     end
   end,
 })
-
-local markdown_group = augroup('ObsidianGroup', { clear = true })
-
--- Hide search highlights upon entering Insert mode
-autocmd("InsertEnter", {
-  desc = "Hide highlights when entering Insert mode",
-  callback = function()
-    -- schedule to run after scope is done (autocmd)
-    vim.schedule(function()
-      vim.v.hlsearch = 0
-    end)
-  end,
-})
-
-autocmd("FileType", {
-  pattern = 'markdown',
-  group = markdown_group,
-  desc = 'Set conceallevel 2 for markdown files', -- A helpful description
-  callback = function()
-    -- Set conceallevel to 2 locally for the buffer
-    -- 1: Shows a placeholder for hidden characters.
-    -- 2: Hides markup characters completely.
-    vim.opt_local.conceallevel = 2
-  end,
-})
