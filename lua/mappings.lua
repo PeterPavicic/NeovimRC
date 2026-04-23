@@ -103,4 +103,4 @@ vim.keymap.set("n", "<leader>u", require("undotree").open, { desc = "Toggle undo
 
 -- oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open oil in floating window" })
+vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open oil in floating window" })
