@@ -57,7 +57,7 @@ vim.keymap.set("n", "<leader>jq", "<CMD>%!jq<CR>", {desc = "Format JSON files"})
 
 -- open/close tabs
 vim.keymap.set("n", "<leader>T", "<CMD>tabnew<CR>", { desc = "Open new tab"})
-vim.keymap.set("n", "<leader>X", "<CMD>tabclose<CR>",  { desc = "Close current tab"} )
+vim.keymap.set("n", "<leader>Q", "<CMD>tabclose<CR>",  { desc = "Close current tab"} )
 
 -- open/close buffers
 vim.keymap.set("n", "<leader>B", "<CMD>enew<CR>", { desc = "Open new buffer"})
