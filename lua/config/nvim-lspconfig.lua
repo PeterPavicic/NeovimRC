@@ -32,7 +32,7 @@ vim.lsp.config("lua_ls", {
       workspace = {
         library = {
           vim.fn.expand "$VIMRUNTIME/lua",
-          vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+          vim.fn.stdpath "data" .. "/lazy", -- to understand plugins
           "${3rd}/luv/library",
         },
       },
