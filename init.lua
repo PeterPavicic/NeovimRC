@@ -17,6 +17,8 @@ require "mappings"
 -- load autocmds
 require "autocmds"
 
+require "ui2"
+
 -- disable node, perl, and python 3 providers
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
