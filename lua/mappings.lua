@@ -5,7 +5,7 @@ vim.keymap.set("i", "<C-c>", "<ESC>")
 -- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move block up 1 line"})
 -- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move block down 1 line"})
 
--- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
+-- Navigate between windows in any modes
 vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
 vim.keymap.set({ 't', 'i' }, '<A-j>', '<C-\\><C-n><C-w>j')
 vim.keymap.set({ 't', 'i' }, '<A-k>', '<C-\\><C-n><C-w>k')
@@ -88,6 +88,7 @@ vim.keymap.set("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", { desc = "te
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", { desc = "telescope find files" })
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
+vim.keymap.set("n", "<leader>ft", "<cmd>Telescope<CR>", { desc = "Open telescope (colourscheme)" })
 vim.keymap.set("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 vim.keymap.set("n", "<leader>gst", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 vim.keymap.set("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", { desc = "telescope theme (colourscheme)" })
