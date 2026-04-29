@@ -25,7 +25,7 @@ return {
     --   "fallback",
     -- },
     ["<CR>"] = { "accept", "fallback" },
-    ["C-space"] = { "show_and_insert", "fallback" },
+    ["<C-Space>"] = { "show_and_insert", "fallback" },
   },
 
   appearance = {
