@@ -1,4 +1,4 @@
-require("vim._core.ui2").enable {
+require("vim._core.ui2").enable({
   enable = true,
   msg = { -- Options related to the message module.
     ---@type 'cmd'|'msg' Default message target, either in the
@@ -20,4 +20,4 @@ require("vim._core.ui2").enable {
       height = 0.5, -- Maximum height.
     },
   },
-}
+})

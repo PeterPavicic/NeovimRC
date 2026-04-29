@@ -1,11 +1,11 @@
 ---@type LazySpec
 return {
-  'saghen/blink.cmp',
+  "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = { "rafamadriz/friendly-snippets" },
   event = "InsertEnter",
   -- use a release tag to download pre-built binaries
-  version = '1.*',
+  version = "1.*",
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -23,9 +23,9 @@ return {
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
-      preset = 'default',
-      ["<Tab>"] = {"select_next", "fallback"},
-      ["<S-Tab>"] = {"select_prev", "fallback"},
+      preset = "default",
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
       ["<CR>"] = {
         function(cmp)
           if cmp.is_visible() then
@@ -35,13 +35,14 @@ return {
         end,
         "fallback",
       },
-      ["C-space"] = {"show_and_insert", "fallback"},
+      -- ["<CR>"] = { "accept", "fallback" },
+      ["C-space"] = { "show_and_insert", "fallback" },
     },
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'mono'
+      nerd_font_variant = "mono",
     },
 
     -- (Default) Only show the documentation popup when manually triggered
@@ -50,13 +51,13 @@ return {
         -- TODO: Enable when updated nvim-treesitter to main branch
         auto_show = false,
       },
-      accept = { auto_brackets = { enabled = true }, },
+      accept = { auto_brackets = { enabled = true } },
     },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -67,7 +68,7 @@ return {
     fuzzy = { implementation = "prefer_rust_with_warning" },
 
     -- experimental signature support
-    signature = { enabled = true }
+    signature = { enabled = true },
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
 }

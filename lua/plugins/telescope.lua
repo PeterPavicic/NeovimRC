@@ -1,11 +1,12 @@
 ---@type LazySpec
 return {
-  'nvim-telescope/telescope.nvim', version = '*',
+  "nvim-telescope/telescope.nvim",
+  version = "*",
   dependencies = {
-    'nvim-lua/plenary.nvim',
+    "nvim-lua/plenary.nvim",
     -- native telescope sorter to improve sorting performance
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   cmd = "Telescope",
-  opts = require "config.telescope"
+  opts = require("config.telescope"),
 }

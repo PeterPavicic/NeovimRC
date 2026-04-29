@@ -16,7 +16,7 @@ local servers = {
 local default_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- Enable basic capabilities for all LSPs
-vim.lsp.config('*', {
+vim.lsp.config("*", {
   capabilities = default_capabilities,
 })
 
@@ -31,13 +31,13 @@ vim.lsp.config("lua_ls", {
       runtime = { version = "LuaJIT" },
       workspace = {
         library = {
-          vim.fn.expand "$VIMRUNTIME/lua",
-          vim.fn.stdpath "data" .. "/lazy", -- to understand plugins
+          vim.fn.expand("$VIMRUNTIME/lua"),
+          vim.fn.stdpath("data") .. "/lazy", -- to understand plugins
           "${3rd}/luv/library",
         },
       },
     },
-  }
+  },
 })
 
 vim.lsp.enable(servers)

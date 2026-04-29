@@ -1,9 +1,11 @@
 ---@type LazySpec
 return {
-  'akinsho/bufferline.nvim',
+  "akinsho/bufferline.nvim",
   lazy = true,
   version = "*",
-  dependencies = {"nvim-tree/nvim-web-devicons"},
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {},
-  keys = "<leader>tb"
+  keys = {
+    { "<leader>tb", desc = "Activate bufferline" },
+  },
 }

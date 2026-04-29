@@ -35,7 +35,6 @@ vim.opt.incsearch = true
 -- some nice colours
 vim.opt.termguicolors = true
 
-
 -- min distance from edge lines
 vim.opt.scrolloff = 3
 
@@ -82,7 +81,7 @@ vim.o.showmode = false
 vim.o.undofile = true
 
 -- add binaries installed by mason.nvim to path
-local is_windows = vim.fn.has "win32" ~= 0
+local is_windows = vim.fn.has("win32") ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
-vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+vim.env.PATH = table.concat({ vim.fn.stdpath("data"), "mason", "bin" }, sep) .. delim .. vim.env.PATH

@@ -25,7 +25,7 @@ require("lazy").setup({
 
   -- lazy-load by default
   defaults = {
-    lazy = true
+    lazy = true,
   },
 
   -- Configure any other settings here. See the documentation for more details.
@@ -33,5 +33,5 @@ require("lazy").setup({
   install = { colorscheme = { "unokai" } },
 
   -- automatically check for plugin updates
-  checker = { enabled = true }
+  checker = { enabled = true },
 })

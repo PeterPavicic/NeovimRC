@@ -5,6 +5,6 @@ return {
     "r",
     "rnoweb",
     "rmd",
-    "quarto"
+    "quarto",
   },
 }

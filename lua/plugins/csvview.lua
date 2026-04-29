@@ -19,7 +19,7 @@ return {
     },
     view = {
       display_mode = "border",
-    }
+    },
   },
   cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
 }

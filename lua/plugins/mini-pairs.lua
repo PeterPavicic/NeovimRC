@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "nvim-mini/mini.pairs",
-  version = '*',
+  version = "*",
   event = "InsertEnter",
   opts = {},
 }
