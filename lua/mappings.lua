@@ -99,3 +99,15 @@ vim.keymap.set("n", "<leader>u", require("undotree").open, { desc = "Toggle undo
 -- oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open oil in floating window" })
+
+-- conform
+vim.keymap.set("n", "<leader>fmt", require("conform").format, { desc = "Format buffer (conform)" })
+vim.keymap.set("n", "<leader>tf", function()
+  if vim.g.disable_autoformat then
+    vim.g.disable_autoformat = false
+    vim.notify("Format on save enabled")
+  else
+    vim.g.disable_autoformat = true
+    vim.notify("Format on save disabled")
+  end
+end, { desc = "Toggle format on save" })
