@@ -1,4 +1,12 @@
 return {
+  pickers = {
+    live_grep = {
+      file_ignore_patterns = { "node_modules", ".git", ".venv" },
+      additional_args = function(_)
+        return { "--hidden" }
+      end,
+    },
+  },
   defaults = {
     prompt_prefix = "   ",
     sorting_strategy = "ascending",
