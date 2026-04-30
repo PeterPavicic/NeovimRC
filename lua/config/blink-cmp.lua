@@ -12,7 +12,7 @@ return {
   --
   -- See :h blink-cmp-config-keymap for defining your own keymap
   keymap = {
-    preset = "default",
+    preset = "enter",
     ["<Tab>"] = { "select_next", "fallback" },
     ["<S-Tab>"] = { "select_prev", "fallback" },
     -- ["<CR>"] = {
@@ -24,7 +24,7 @@ return {
     --   end,
     --   "fallback",
     -- },
-    ["<CR>"] = { "accept", "fallback" },
+    -- ["<CR>"] = { "accept", "fallback" },
     ["<C-Space>"] = { "show_and_insert", "fallback" },
   },
 
