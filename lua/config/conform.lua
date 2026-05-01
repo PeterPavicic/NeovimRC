@@ -12,6 +12,7 @@ return {
     -- Run multiple formatters sequentially
     python = { "ruff_organize_imports", "ruff_format" },
     r = { "air" },
+    sql = { "sql_formatter" },
     typst = { lsp_format = "fallback" },
   },
 
