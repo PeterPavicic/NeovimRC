@@ -1,26 +1,12 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
+local usercmd = vim.api.nvim_create_user_command
 
 -- Yank highlighting
 autocmd("TextYankPost", {
   desc = "Highlight when yanking text",
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
--- Removes undotree from buffer (avoids crashing)
-autocmd("FileType", {
-  pattern = "undotree",
-  callback = function()
-    vim.schedule(function()
-      for i, buf in ipairs(vim.t.bufs) do
-        if not vim.bo[buf].buflisted then
-          vim.t.bufs = vim.list_slice(vim.t.bufs, 1, i - 1)
-        end
-      end
-      vim.cmd.redrawtabline()
-    end)
   end,
 })
 
@@ -54,7 +40,7 @@ autocmd("BufReadPost", {
 })
 
 -- Toggle conform's autoformat-on-save
-vim.api.nvim_create_user_command("FormatDisable", function(args)
+usercmd("FormatDisable", function(args)
   if args.bang then
     -- FormatDisable! will disable formatting just for this buffer
     vim.b.disable_autoformat = true
@@ -65,7 +51,8 @@ end, {
   desc = "Disable autoformat-on-save",
   bang = true,
 })
-vim.api.nvim_create_user_command("FormatEnable", function()
+
+usercmd("FormatEnable", function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
 end, {
