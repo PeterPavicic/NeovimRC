@@ -94,6 +94,9 @@ end, { desc = "telescope find all files" })
 --
 -- grep
 map("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "telescope live grep" })
+map("n", "<leader>fw", function()
+  require("telescope.builtin").live_grep({ additional_args = { "--no-ignore", "--hidden" } })
+end, { desc = "telescope live grep all files" })
 map(
   "n",
   "<leader>fz",
