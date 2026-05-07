@@ -14,6 +14,9 @@ vim.opt.cursorlineopt = "both"
 -- don't sync system clipboard
 vim.opt.clipboard = ""
 
+-- window borders are rounded
+vim.o.winborder = "rounded"
+
 -- indenting
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
