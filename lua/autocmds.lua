@@ -71,3 +71,18 @@ vim.api.nvim_create_user_command("FormatEnable", function()
 end, {
   desc = "Re-enable autoformat-on-save",
 })
+
+-- Enable highlight groups for BlinkPairs
+autocmd("InsertEnter", {
+  pattern = "*",
+  once = true,
+  callback = function()
+    vim.api.nvim_set_hl(0, "BlinkPairsRed", { fg = "#f38ba8" })
+    vim.api.nvim_set_hl(0, "BlinkPairsOrange", { fg = "#fab387" })
+    vim.api.nvim_set_hl(0, "BlinkPairsYellow", { fg = "#f9e2af" })
+    vim.api.nvim_set_hl(0, "BlinkPairsGreen", { fg = "#a6e3a1" })
+    vim.api.nvim_set_hl(0, "BlinkPairsCyan", { fg = "#94e2d5" })
+    vim.api.nvim_set_hl(0, "BlinkPairsBlue", { fg = "#89b4fa" })
+    vim.api.nvim_set_hl(0, "BlinkPairsPurple", { fg = "#cba6f7" })
+  end,
+})
