@@ -17,6 +17,9 @@ vim.opt.clipboard = ""
 -- window borders are rounded
 vim.o.winborder = "rounded"
 
+-- window borders are rounded
+vim.o.viewoptions = "folds,cursor"
+
 -- indenting
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
