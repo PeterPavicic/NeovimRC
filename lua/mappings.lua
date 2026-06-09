@@ -103,12 +103,15 @@ map(
   require("telescope.builtin").current_buffer_fuzzy_find,
   { desc = "telescope find in current buffer" }
 )
---
+
 -- help
 map("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "telescope help page" })
+map("n", "<leader>th", require("telescope.builtin").colorscheme, { desc = "telescope theme (colourscheme)" })
+
+-- git
+map("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle git blame" })
 map("n", "<leader>gc", require("telescope.builtin").git_commits, { desc = "telescope git commits" })
 map("n", "<leader>gst", require("telescope.builtin").git_status, { desc = "telescope git status" })
-map("n", "<leader>th", require("telescope.builtin").colorscheme, { desc = "telescope theme (colourscheme)" })
 
 -- undotree
 map("n", "<leader>u", require("undotree").open, { desc = "Toggle undotree" })
