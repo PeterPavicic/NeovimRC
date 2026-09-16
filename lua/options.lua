@@ -48,11 +48,17 @@ vim.opt.scrolloff = 3
 vim.opt.updatetime = 500
 vim.opt.smartcase = true
 
--- disable node, perl, and python 3 providers
+-- disable node, perl, and ruby providers
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
-vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+-- python provider
+vim.g.python3_host_prog = vim.fn.expand("$HOME/.local/share/nvim/python-host/bin/python")
+
+-- NOTE: If this doesn't exist yet, create:
+-- uv venv ~/.local/share/nvim/python-host
+-- uv pip install -p ~/.local/share/nvim/python-host pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat
 
 vim.o.laststatus = 3
 

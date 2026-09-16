@@ -23,6 +23,10 @@ require("lazy").setup({
     { import = "plugins" },
   },
 
+  rocks = {
+    hererocks = true,
+  },
+
   -- lazy-load by default
   defaults = {
     lazy = true,
