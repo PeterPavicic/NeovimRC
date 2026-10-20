@@ -22,6 +22,19 @@ vim.lsp.config("*", {
 
 -- lower highlight priority for highlights than treesitter
 -- meaning this will fire if treesitter errors/fails/should work for language injection
-vim.highlight.priorities.semantic_tokens = 95
+vim.hl.priorities.semantic_tokens = 95
+
+-- Disable Annoying Pyright Diagnostic (source: molten-nvim's Notebook setup)
+vim.lsp.config("pyright", {
+  settings = {
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportUnusedExpression = "none",
+        },
+      },
+    },
+  },
+})
 
 vim.lsp.enable(servers)
