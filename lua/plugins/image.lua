@@ -7,5 +7,6 @@ return {
     -- init = require("config.image").init,
 
     opts = require("config.image").opts,
+    config = require("config.image").config,
   },
 }
