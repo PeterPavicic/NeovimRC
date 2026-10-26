@@ -39,83 +39,90 @@ M.init = function()
   -- KEYBINDINGS
   local group = vim.api.nvim_create_augroup("MoltenKeymaps", { clear = true })
 
+  -- show/hide output window
+  local toggle_output = function()
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      -- MoltenHideOutput also works from inside the output window
+      if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "molten_output" then
+        vim.cmd("MoltenHideOutput")
+        return
+      end
+    end
+    vim.cmd("MoltenShowOutput")
+  end
+
+  -- The output window shows its own buffer, so the code buffer's mappings don't apply there
+  local map_output_buf = function(buf)
+    vim.keymap.set(
+      "n",
+      "<localleader>ok",
+      "<cmd>wincmd p<CR>",
+      { buffer = buf, silent = true, desc = "exit output window" }
+    )
+    vim.keymap.set(
+      "n",
+      "<localleader>os",
+      toggle_output,
+      { buffer = buf, silent = true, desc = "Toggle output window" }
+    )
+  end
+
+  -- Molten sets the filetype every time it opens the output window
+  vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = "molten_output",
+    callback = function(args)
+      map_output_buf(args.buf)
+    end,
+  })
+
   vim.api.nvim_create_autocmd("User", {
     group = group,
     pattern = "MoltenInitPost",
     callback = function()
-      -- local map = function(mode, lhs, rhs, desc)
-      --   vim.keymap.set(mode, lhs, rhs, { buffer = false, silent = false, desc = desc })
-      -- end
+      local map = function(mode, lhs, rhs, desc)
+        vim.keymap.set(mode, lhs, rhs, { buffer = true, silent = true, desc = desc })
+      end
 
       -- Molten
-      vim.keymap.set("n", "<localleader>md", ":MoltenDeinit<CR>", { silent = true, desc = "Deinitialize kernel" })
-      vim.keymap.set("n", "<localleader>mI", ":MoltenInfo<CR>", { silent = true, desc = "Kernel information" })
-      vim.keymap.set("n", "<localleader>mc", ":MoltenInterrupt<CR>", { silent = true, desc = "Interrupt kernel" })
-      vim.keymap.set("n", "<localleader>mr", ":MoltenRestart<CR>", { silent = true, desc = "Restart kernel" })
-      vim.keymap.set(
-        "n",
-        "<localleader>mx",
-        ":MoltenRestart!<CR>",
-        { silent = true, desc = "Restart kernel and clear all output" }
-      )
+      map("n", "<localleader>md", ":MoltenDeinit<CR>", "Deinitialize kernel")
+      map("n", "<localleader>mI", ":MoltenInfo<CR>", "Kernel information")
+      map("n", "<localleader>mc", ":MoltenInterrupt<CR>", "Interrupt kernel")
+      map("n", "<localleader>mr", ":MoltenRestart<CR>", "Restart kernel")
+      map("n", "<localleader>mx", ":MoltenRestart!<CR>", "Restart kernel and clear all output")
 
       -- Evaluate
-      vim.keymap.set("n", "<localleader>rl", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
-      vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
-      vim.keymap.set(
-        "n",
-        "<localleader>e",
-        ":MoltenEvaluateOperator<CR>",
-        { silent = true, desc = "run operator selection" }
-      )
-      vim.keymap.set(
-        "v",
-        "<localleader>r",
-        ":<C-u>MoltenEvaluateVisual<CR>",
-        { silent = true, desc = "evaluate visual selection" }
-      )
-      vim.keymap.set("n", "<localleader>ra", ":MoltenEvaluateArgument ", { silent = true, desc = "evaluate input" })
+      map("n", "<localleader>rl", ":MoltenEvaluateLine<CR>", "evaluate line")
+      map("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", "re-evaluate cell")
+      map("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", "run operator selection")
+      map("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>", "evaluate visual selection")
+      map("n", "<localleader>ra", ":MoltenEvaluateArgument ", "evaluate input")
 
       -- Navigate
-      vim.keymap.set("n", "]c", ":MoltenNext<CR>", { silent = true, desc = "jump to next cell" })
-      vim.keymap.set("n", "[c", ":MoltenPrev<CR>", { silent = true, desc = "jump to previous cell" })
-      vim.keymap.set("n", "<localleader>g", ":MoltenGoto ", { silent = true, desc = "jump to cell" })
+      map("n", "]c", ":MoltenNext<CR>", "jump to next cell")
+      map("n", "[c", ":MoltenPrev<CR>", "jump to previous cell")
+      map("n", "<localleader>g", ":MoltenGoto ", "jump to cell")
 
       -- Cell
-      vim.keymap.set("n", "<localleader>rd", ":MoltenDelete<CR>", { silent = true, desc = "molten delete cell" })
+      map("n", "<localleader>rd", ":MoltenDelete<CR>", "molten delete cell")
 
       -- Output
-      -- show/hide output window
-      vim.keymap.set("n", "<localleader>os", function()
-        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-          -- MoltenHideOutput also works from inside the output window
-          if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "molten_output" then
-            vim.cmd("MoltenHideOutput")
-            return
-          end
-        end
-        vim.cmd("MoltenShowOutput")
-      end, { silent = true, desc = "Toggle output window" })
+      map("n", "<localleader>os", toggle_output, "Toggle output window")
 
-      -- enter/exit output window
-      vim.keymap.set("n", "<localleader>ok", function()
+      -- enter output window; exiting is mapped on the output buffer itself
+      map("n", "<localleader>ok", function()
         -- MoltenEnterOutput only works from the cell. It enters the auto-opened hover window, or opens
         -- it if it was hidden
+        vim.cmd("noautocmd MoltenEnterOutput")
+        -- noautocmd suppresses FileType if this opened the window, so map the output buffer here too
         if vim.bo.filetype == "molten_output" then
-          vim.cmd("wincmd p")
-        else
-          vim.cmd("noautocmd MoltenEnterOutput")
+          map_output_buf(0)
         end
-      end, { silent = true, desc = "enter/exit output window" })
+      end, "enter output window")
 
-      vim.keymap.set("n", "<localleader>op", ":MoltenImagePopup<CR>", { silent = true, desc = "Open image popup" })
-      vim.keymap.set("n", "<localleader>oy", ":MoltenYankOutput<CR>", { silent = true, desc = "Yank cell output" })
-      vim.keymap.set(
-        "n",
-        "<localleader>o<leader>y",
-        ":MoltenYankOutput!<CR>",
-        { desc = "yank cell output to clipboard" }
-      )
+      map("n", "<localleader>op", ":MoltenImagePopup<CR>", "Open image popup")
+      map("n", "<localleader>oy", ":MoltenYankOutput<CR>", "Yank cell output")
+      map("n", "<localleader>o<leader>y", ":MoltenYankOutput!<CR>", "yank cell output to clipboard")
 
       -- TODO: Implement R-nvim style treesitter-based jump to next `expression_statement`
     end,
