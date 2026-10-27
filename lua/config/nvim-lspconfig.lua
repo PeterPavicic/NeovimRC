@@ -31,6 +31,8 @@ vim.lsp.config("pyright", {
       analysis = {
         diagnosticSeverityOverrides = {
           reportUnusedExpression = "none",
+          -- nvim-lspconfig sets disableTaggedHints, which hides pyright's "not accessed" hints
+          reportUnusedImport = "warning",
         },
       },
     },
