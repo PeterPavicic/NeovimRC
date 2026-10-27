@@ -58,7 +58,7 @@ vim.g.python3_host_prog = vim.fn.expand("$HOME/.local/share/nvim/python-host/bin
 
 -- NOTE: If this doesn't exist yet, create:
 -- uv venv ~/.local/share/nvim/python-host
--- uv pip install -p ~/.local/share/nvim/python-host pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat
+-- uv pip install -p ~/.local/share/nvim/python-host pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat pillow
 
 vim.o.laststatus = 3
 
