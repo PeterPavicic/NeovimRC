@@ -12,6 +12,10 @@ vim.opt.cursorline = true
 vim.opt.cursorlineopt = "both"
 
 -- don't sync system clipboard
+if os.getenv("SSH_TTY") then
+  vim.g.clipboard = "osc52"
+end
+
 vim.opt.clipboard = ""
 
 -- window borders are rounded
