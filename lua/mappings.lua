@@ -113,6 +113,9 @@ map("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", { desc = "
 map("n", "<leader>gc", require("telescope.builtin").git_commits, { desc = "telescope git commits" })
 map("n", "<leader>gst", require("telescope.builtin").git_status, { desc = "telescope git status" })
 
+-- telescope search undo history
+map("n", "<leader>fu", require("telescope").extensions.undo.undo, { desc = "telescope search undo" })
+
 -- undotree
 map("n", "<leader>u", require("undotree").open, { desc = "Toggle undotree" })
 
