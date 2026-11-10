@@ -11,7 +11,7 @@ vim.keymap.set("n", "<leader>e", function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = "Harpoon show menu" })
 
-for i = 1, 6 do
+for i = 1, 9 do
   vim.keymap.set("n", "<M-" .. i .. ">", function()
     harpoon:list():select(i)
   end, { desc = "Harpoon go to " .. i })
