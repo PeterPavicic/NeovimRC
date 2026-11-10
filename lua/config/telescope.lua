@@ -24,5 +24,20 @@ return {
   },
 
   extensions_list = { "themes", "terms" },
-  extensions = {},
+  extensions = {
+    undo = {
+      mappings = {
+        n = {
+          ["<cr>"] = function(bufnr)
+            return require("telescope-undo.actions").yank_additions(bufnr)
+          end,
+          ["<S-cr>"] = function(bufnr)
+            return require("telescope-undo.actions").yank_deletions(bufnr)
+          end,
+        },
+      },
+    },
+    -- other extensions:
+    -- file_browser = { ... }
+  },
 }
