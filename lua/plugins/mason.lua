@@ -17,5 +17,6 @@ return {
 -- prettierd
 -- pyright
 -- ruff
+-- shfmt
 -- sql-formatter
 -- tinymist

@@ -3,6 +3,7 @@ return {
   formatters_by_ft = {
     -- You can customize some of the format options for the filetype (:help conform.format)
     -- Run the first available formatter
+    bash = { "shfmt" },
     css = { "prettierd", "prettier", stop_after_first = true },
     html = { "prettierd", "prettier", stop_after_first = true },
     javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -12,8 +13,10 @@ return {
     -- Run multiple formatters sequentially
     python = { "ruff_organize_imports", "ruff_format" },
     r = { "air" },
+    sh = { "shfmt" },
     sql = { "sql_formatter" },
     typst = { lsp_format = "fallback" },
+    zsh = { "shfmt" },
   },
 
   ---@type conform.DefaultFormatOpts
