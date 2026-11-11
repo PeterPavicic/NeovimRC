@@ -5,8 +5,10 @@ return {
     event = "BufReadPre",
     opts = {
       options = {
-        hex = {
-          rrggbbaa = true,
+        parsers = {
+          hex = {
+            rrggbbaa = true,
+          },
         },
       },
     },
