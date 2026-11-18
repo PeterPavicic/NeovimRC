@@ -91,7 +91,7 @@ map("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "telesc
 map("n", "<leader>fa", function()
   require("telescope.builtin").find_files({ follow = true, no_ignore = true, hidden = true })
 end, { desc = "telescope find all files" })
---
+
 -- grep
 map("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "telescope live grep" })
 map("n", "<leader>fw", function()
@@ -104,17 +104,48 @@ map(
   { desc = "telescope find in current buffer" }
 )
 
+-- telescope search undo history
+map("n", "<leader>fu", require("telescope").extensions.undo.undo, { desc = "telescope search undo" })
+
 -- help
 map("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "telescope help page" })
 map("n", "<leader>th", require("telescope.builtin").colorscheme, { desc = "telescope theme (colourscheme)" })
 
 -- git
-map("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle git blame" })
 map("n", "<leader>gc", require("telescope.builtin").git_commits, { desc = "telescope git commits" })
 map("n", "<leader>gst", require("telescope.builtin").git_status, { desc = "telescope git status" })
 
--- telescope search undo history
-map("n", "<leader>fu", require("telescope").extensions.undo.undo, { desc = "telescope search undo" })
+-- GITSIGNS
+-- NOTE: Should these be in a callback instead?
+-- navigate hunks
+map("n", "[g", function()
+  require("gitsigns").nav_hunk("prev")
+end, { desc = "Previous git hunk" })
+map("n", "]g", function()
+  require("gitsigns").nav_hunk("prev")
+end, { desc = "Next git hunk" })
+
+-- stage/unstage hunk
+map("n", "<leader>ga", require("gitsigns").stage_hunk, { desc = "git stage/unstage hunk" })
+-- restore hunk
+map("n", "<leader>gr", require("gitsigns").reset_hunk, { desc = "git restore hunk" })
+
+-- line-wise stage
+map("v", "<leader>ga", function()
+  require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end, { desc = "git stage/unstage selected lines" })
+-- line-wise restore
+map("v", "<leader>gr", function()
+  require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end, { desc = "git reset selected lines" })
+
+-- stage/unstage buffer
+map("n", "<leader>gA", require("gitsigns").stage_buffer, { desc = "git stage current buffer" })
+-- restore buffer
+map("n", "<leader>gR", require("gitsigns").reset_buffer, { desc = "git restore current buffer" })
+
+-- blame
+map("n", "<leader>gb", require("gitsigns").toggle_current_line_blame, { desc = "Toggle git blame" })
 
 -- undotree
 map("n", "<leader>u", require("undotree").open, { desc = "Toggle undotree" })
