@@ -3,7 +3,16 @@ return {
   "stevearc/oil.nvim",
   ---@module 'oil'
   ---@type oil.SetupOpts
-  opts = {},
+  opts = {
+    win_options = {
+      signcolumn = "yes:2",
+      statuscolumn = "%l %s",
+    },
+    view_options = {
+      -- Show files and directories that start with "."
+      show_hidden = true,
+    },
+  },
   -- Optional dependencies
   dependencies = {
     -- {"nvim-mini/mini.icons", opts = {}},
