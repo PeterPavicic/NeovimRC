@@ -112,8 +112,13 @@ map("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "telesco
 map("n", "<leader>th", require("telescope.builtin").colorscheme, { desc = "telescope theme (colourscheme)" })
 
 -- git
-map("n", "<leader>gc", require("telescope.builtin").git_commits, { desc = "telescope git commits" })
-map("n", "<leader>gst", require("telescope.builtin").git_status, { desc = "telescope git status" })
+map("n", "<leader>fc", require("telescope.builtin").git_commits, { desc = "telescope git commits" })
+map("n", "<leader>fgst", require("telescope.builtin").git_status, { desc = "telescope git status" })
+
+-- GIT INTEGRATION
+-- FUGITIVE
+map("n", "<leader>gst", "<cmd>Git<cr>", { desc = "Git status" })
+map("n", "<leader>gl", "<cmd>Gclog<cr>", { desc = "Git log in quickfix list" })
 
 -- GITSIGNS
 -- NOTE: Should these be in a callback instead?
@@ -146,6 +151,12 @@ map("n", "<leader>gR", require("gitsigns").reset_buffer, { desc = "git restore c
 
 -- blame
 map("n", "<leader>gb", require("gitsigns").toggle_current_line_blame, { desc = "Toggle git blame" })
+map("n", "<leader>gB", require("gitsigns").blame, { desc = "Git blame" })
+
+-- diff
+map("n", "<leader>gd", require("gitsigns").diffthis, { desc = "Git diff this" })
+map("n", "<leader>gD", require("gitsigns").diff, { desc = "Git open diff" })
+map("n", "<leader>gw", require("gitsigns").toggle_word_diff, { desc = "Toggle git word diff" })
 
 -- undotree
 map("n", "<leader>u", require("undotree").open, { desc = "Toggle undotree" })
