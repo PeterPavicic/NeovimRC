@@ -1,42 +1,48 @@
--- In order for these to work make sure to install the corresponding LSPs (potentially using Mason)
-local servers = {
-  "bashls",
-  "cssls",
-  "hyprls",
-  "jdtls",
-  "jsonls",
-  "lua_ls",
-  "marksman",
-  "prettier",
-  "pyright",
-  "texlab",
-  "tinymist",
-}
+local M = {}
 
-local default_capabilities = require("blink.cmp").get_lsp_capabilities()
+M.config = function()
+  -- In order for these to work make sure to install the corresponding LSPs (potentially using Mason)
+  local servers = {
+    "bashls",
+    "cssls",
+    "hyprls",
+    "jdtls",
+    "jsonls",
+    "lua_ls",
+    "marksman",
+    "prettier",
+    "pyright",
+    "texlab",
+    "tinymist",
+  }
 
--- Enable basic capabilities for all LSPs
-vim.lsp.config("*", {
-  capabilities = default_capabilities,
-})
+  local default_capabilities = require("blink.cmp").get_lsp_capabilities()
 
--- lower highlight priority for highlights than treesitter
--- meaning this will fire if treesitter errors/fails/should work for language injection
-vim.hl.priorities.semantic_tokens = 95
+  -- Enable basic capabilities for all LSPs
+  vim.lsp.config("*", {
+    capabilities = default_capabilities,
+  })
 
--- Disable Annoying Pyright Diagnostic (source: molten-nvim's Notebook setup)
-vim.lsp.config("pyright", {
-  settings = {
-    python = {
-      analysis = {
-        diagnosticSeverityOverrides = {
-          reportUnusedExpression = "none",
-          -- nvim-lspconfig sets disableTaggedHints, which hides pyright's "not accessed" hints
-          reportUnusedImport = "warning",
+  -- lower highlight priority for highlights than treesitter
+  -- meaning this will fire if treesitter errors/fails/should work for language injection
+  vim.hl.priorities.semantic_tokens = 95
+
+  -- Disable Annoying Pyright Diagnostic (source: molten-nvim's Notebook setup)
+  vim.lsp.config("pyright", {
+    settings = {
+      python = {
+        analysis = {
+          diagnosticSeverityOverrides = {
+            reportUnusedExpression = "none",
+            -- nvim-lspconfig sets disableTaggedHints, which hides pyright's "not accessed" hints
+            reportUnusedImport = "warning",
+          },
         },
       },
     },
-  },
-})
+  })
 
-vim.lsp.enable(servers)
+  vim.lsp.enable(servers)
+end
+
+return M

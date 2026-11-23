@@ -3,14 +3,6 @@ return {
   {
     "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
-    opts = {
-      options = {
-        parsers = {
-          hex = {
-            rrggbbaa = true,
-          },
-        },
-      },
-    },
+    opts = require("config.nvim-colorizer").opts,
   },
 }

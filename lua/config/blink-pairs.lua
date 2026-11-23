@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.opts = {
   mappings = {
     -- you can call require("blink.pairs.mappings").enable()
     -- and require("blink.pairs.mappings").disable()
@@ -44,3 +46,5 @@ return {
   },
   debug = false,
 }
+
+return M

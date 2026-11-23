@@ -10,5 +10,5 @@ return {
     "debugloop/telescope-undo.nvim",
   },
   cmd = "Telescope",
-  opts = require("config.telescope"),
+  opts = require("config.telescope").opts,
 }

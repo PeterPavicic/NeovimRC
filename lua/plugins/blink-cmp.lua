@@ -9,6 +9,6 @@ return {
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
-  opts = require("config.blink-cmp"),
+  opts = require("config.blink-cmp").opts,
   opts_extend = { "sources.default" },
 }

@@ -14,5 +14,5 @@ return {
 
   --- @module 'blink.pairs'
   --- @type blink.pairs.Config
-  opts = require("config.blink-pairs"),
+  opts = require("config.blink-pairs").opts,
 }

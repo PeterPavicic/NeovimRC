@@ -4,8 +4,5 @@ return {
   event = "VeryLazy",
   priority = 1000,
   -- default config
-  config = function()
-    require("tiny-inline-diagnostic").setup()
-    vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
-  end,
+  config = require("config.tiny-inline-diagnostic").config,
 }

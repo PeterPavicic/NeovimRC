@@ -10,7 +10,6 @@ return {
 -- css-lsp
 -- hyprls
 -- jdtls
--- json-lsp
 -- lua-language-server
 -- marksman
 -- prettier
@@ -18,5 +17,6 @@ return {
 -- pyright
 -- ruff
 -- shfmt
+-- stylua
 -- sql-formatter
 -- tinymist

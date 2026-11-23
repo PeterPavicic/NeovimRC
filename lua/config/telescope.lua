@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.opts = {
   pickers = {
     live_grep = {
       file_ignore_patterns = { "node_modules", ".git", ".venv" },
@@ -41,3 +43,5 @@ return {
     -- file_browser = { ... }
   },
 }
+
+return M

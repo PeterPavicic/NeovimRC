@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.opts = {
   ---@type conform.setupOpts
   formatters_by_ft = {
     -- You can customize some of the format options for the filetype (:help conform.format)
@@ -32,3 +34,5 @@ return {
     return {}
   end,
 }
+
+return M
